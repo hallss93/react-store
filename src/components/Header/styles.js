@@ -17,3 +17,23 @@ export const Title = styled.Text`
   font-size: 22px;
 `;
 export const ButtonBack = styled.TouchableWithoutFeedback``;
+export const CartView = styled.View`
+  display: flex;
+  flex-direction: row;
+  padding-right: 15px;
+`;
+export const QuantidadeView = styled.View`
+  background-color: ${WHITE};
+  padding: 4px;
+  border-radius: 50px;
+  height: 18px;
+  width: 18px;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: -5px;
+  right: 5px;
+`;
+export const QuantidadeText = styled.Text`
+  font-size: 16px;
+`;

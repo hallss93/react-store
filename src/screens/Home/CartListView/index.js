@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Text, View, StyleSheet} from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {StyleSheet} from 'react-native';
+import {useSelector} from 'react-redux';
 
 import {
   Container,
@@ -9,40 +9,33 @@ import {
   ValueText,
   ProductText,
   ProductImage,
-  ProductImageView
+  ProductImageView,
+  CardTouch,
 } from './styles';
 
-import {getAllProducts} from './../../../store/actions/productsActions';
-
 const CartListView = ({navigation}) => {
-  const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
-
-  useEffect(() => {
-    dispatch(getAllProducts());
-  }, []);
   return (
     <Container>
       <CardContainer>
         {products.map((product, index) => {
           return (
-            <Card key={index} style={styles.card}>
-              <ProductImageView>
-                {index % 2 ? (
+            <CardTouch
+              key={index}
+              onPress={() => {
+                navigation.navigate('Product', {id: product.id});
+              }}>
+              <Card style={styles.card}>
+                <ProductImageView>
                   <ProductImage
-                    source={require(`./../../../assets/imgs/blusa.png`)}></ProductImage>
-                ) : index % 3 ? (
-                  <ProductImage
-                    source={require(`./../../../assets/imgs/camisa.png`)}></ProductImage>
-                ) : (
-                  <ProductImage
-                    source={require(`./../../../assets/imgs/calca.png`)}></ProductImage>
-                )}
-              </ProductImageView>
+                    source={{uri: product.image}}
+                    style={{aspectRatio: 1}}></ProductImage>
+                </ProductImageView>
 
-              <ProductText>{product.description}</ProductText>
-              <ValueText>R$ {product.value}</ValueText>
-            </Card>
+                <ProductText>{product.title}</ProductText>
+                <ValueText>R$ {product.price}</ValueText>
+              </Card>
+            </CardTouch>
           );
         })}
       </CardContainer>

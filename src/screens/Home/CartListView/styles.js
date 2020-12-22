@@ -11,6 +11,7 @@ export const CardContainer = styled.View`
   justify-content: center;
 `;
 
+export const CardTouch = styled.TouchableNativeFeedback``;
 export const Card = styled.View`
   width: auto;
   background-color: ${WHITE};

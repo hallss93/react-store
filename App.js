@@ -9,6 +9,8 @@ import HomeScreen from './src/screens/Home';
 import {RED_HARD} from './src/utils/styles/colors';
 const StackHome = createStackNavigator();
 import store from './src/store';
+import ProductScreen from './src/screens/Product';
+import CarrinhoScreen from './src/screens/Carrinho';
 
 const App = () => {
   return (
@@ -17,6 +19,8 @@ const App = () => {
       <NavigationContainer>
         <StackHome.Navigator headerMode="none">
           <StackHome.Screen name="Home" component={HomeScreen} />
+          <StackHome.Screen name="Product" component={ProductScreen} />
+          <StackHome.Screen name="Carrinho" component={CarrinhoScreen} />
         </StackHome.Navigator>
       </NavigationContainer>
     </Provider>

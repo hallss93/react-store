@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 let api = axios.create({
-  baseURL: 'https://api.mocki.io/v1/',
+  baseURL: 'https://fakestoreapi.com/products',
   timeout: 30000,
 });
 api.interceptors.request.use(async (config) => {

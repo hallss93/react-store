@@ -2,6 +2,7 @@ import actionType from '../actionsTypes';
 
 const initialValue = {
   products: [],
+  product: null,
 };
 
 export default function session(state = initialValue, action) {
@@ -10,6 +11,12 @@ export default function session(state = initialValue, action) {
       return {
         ...state,
         products: action.payload,
+      };
+    }
+    case actionType.products.setProduct: {
+      return {
+        ...state,
+        product: action.payload,
       };
     }
 
