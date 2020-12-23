@@ -9,6 +9,7 @@ const errorInterceptor = (error, dispatch) => {
   ) {
     console.log(error.response.data);
   } else {
+    console.log(error)
     console.log('Outro erro');
   }
 };

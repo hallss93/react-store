@@ -12,6 +12,7 @@ import {
 import FontAwesome5Icon from 'react-native-vector-icons/FontAwesome5';
 import Cart from './../../assets/icons/cart-outline.svg';
 import {useSelector} from 'react-redux';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 const Header = ({navigation, title, goBack}) => {
   const totalItensCarrinho = useSelector(
     (state) => state.carrinho.totalItensCarrinho,
@@ -30,10 +31,16 @@ const Header = ({navigation, title, goBack}) => {
       )}
       <Title>{title}</Title>
       <CartView>
-        <Cart width={20} />
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate('Carrinho')}>
+          <Cart width={20} />
+        </TouchableWithoutFeedback>
         {totalItensCarrinho > 0 && (
           <QuantidadeView>
-            <QuantidadeText>{totalItensCarrinho}</QuantidadeText>
+            <TouchableWithoutFeedback
+              onPress={() => navigation.navigate('Carrinho')}>
+              <QuantidadeText>{totalItensCarrinho}</QuantidadeText>
+            </TouchableWithoutFeedback>
           </QuantidadeView>
         )}
       </CartView>

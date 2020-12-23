@@ -3,7 +3,6 @@ import {GRAY, RED, WHITE} from './../../utils/styles/colors';
 
 export const Container = styled.ScrollView`
   height: 100%;
-  padding: 10px;
 `;
 export const ProductImageView = styled.View`
   justify-content: center;

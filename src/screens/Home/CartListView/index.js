@@ -33,7 +33,7 @@ const CartListView = ({navigation}) => {
                 </ProductImageView>
 
                 <ProductText>{product.title}</ProductText>
-                <ValueText>R$ {product.price}</ValueText>
+                <ValueText>R$ {Number(product.price).toFixed(2)}</ValueText>
               </Card>
             </CardTouch>
           );

@@ -39,37 +39,38 @@ const ProductScreen = ({navigation, route}) => {
     navigation.navigate('Carrinho');
   };
   return (
-    <View>
-      <Header title="" navigation={navigation} goBack={true} />
+    <Container>
+      <Header navigation={navigation} goBack={true} />
       {product && (
-        <Container>
-          <SafeAreaView>
-            <ProductImageView>
-              <ProductImage
-                source={{uri: product.image}}
-                style={{aspectRatio: 1}}></ProductImage>
-            </ProductImageView>
-            <ContainerCenter>
-              <Title>{product.title}</Title>
-              <Price>R$ {product.price}</Price>
-            </ContainerCenter>
-            <DescriptionTitle>Descrição</DescriptionTitle>
-            <Description>{product.description}</Description>
+        <View
+          style={{
+            padding: 10,
+          }}>
+          <ProductImageView>
+            <ProductImage
+              source={{uri: product.image}}
+              style={{aspectRatio: 1}}></ProductImage>
+          </ProductImageView>
+          <ContainerCenter>
+            <Title>{product.title}</Title>
+            <Price>R$ {Number(product.price).toFixed(2)}</Price>
+          </ContainerCenter>
+          <DescriptionTitle>Descrição</DescriptionTitle>
+          <Description>{product.description}</Description>
 
-            <ContainerButtons>
-              <ButtonTouch onPress={() => comprar()}>
-                <ButtonView>
-                  <ButtonText>Comprar</ButtonText>
-                </ButtonView>
-              </ButtonTouch>
-              <ButtonTouch onPress={() => comprar()}>
-                <Adicionar>Adicionar ao Carrinho</Adicionar>
-              </ButtonTouch>
-            </ContainerButtons>
-          </SafeAreaView>
-        </Container>
+          <ContainerButtons>
+            <ButtonTouch onPress={() => comprar()}>
+              <ButtonView>
+                <ButtonText>Comprar</ButtonText>
+              </ButtonView>
+            </ButtonTouch>
+            <ButtonTouch onPress={() => comprar()}>
+              <Adicionar>Adicionar ao Carrinho</Adicionar>
+            </ButtonTouch>
+          </ContainerButtons>
+        </View>
       )}
-    </View>
+    </Container>
   );
 };
 
